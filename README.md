@@ -8,6 +8,6 @@ Write along from a course done by Gordon Zhu
 
 ### Exercise02
 
-Coming soon
+I had rewriten the write-along(without actually looking at the source code too much) project from previous course and added more functionality and made it into a project of mine. This is the best javascript learning experience so far.
 
-I will rewrite the whole project done with the previous write-along and make it look good and implement what else is needed.
+---

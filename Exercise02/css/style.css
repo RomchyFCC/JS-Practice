@@ -1,0 +1,14 @@
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  color: #ccc; }
+
+.btn {
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid gray; }
+
+/*# sourceMappingURL=style.css.map */
