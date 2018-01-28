@@ -1,0 +1,46 @@
+* {
+	box-sizing: border-box;
+}
+
+a {
+		text-decoration: none;
+}
+
+body {
+	background: linear-gradient($blue, $salmon);
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 900px;
+	color: $white;
+}
+
+li {
+	list-style: none;
+	padding: 5px;
+	line-height: 55px;
+}
+
+h1 {
+	font-size: 60px;
+	text-align: center;
+	color: $grey;
+	text-transform: uppercase;
+	margin-top: 0px;
+	padding-top: 100px;
+	margin-bottom: 50px;
+	border-bottom: 3px solid $dark-brown;
+}
+
+input {
+	background: $grey;
+	font-size: 20px;
+	border: none;
+	color: $dark-brown;
+	margin: 0 5px;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}

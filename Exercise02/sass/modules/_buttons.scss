@@ -1,0 +1,16 @@
+.btn {
+	color: $white;
+	padding: 15px;
+	background: transparent;
+	border: 1px solid $dark-brown;
+	&:hover {
+		cursor: pointer;
+		background: $grey;
+		color: $dark-brown;
+		border-radius: 10px;
+	}
+}
+
+.completeButton, .deleteButton {
+	border: 1px solid $light-brown;
+}

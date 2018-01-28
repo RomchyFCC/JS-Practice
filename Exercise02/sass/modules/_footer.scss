@@ -1,0 +1,28 @@
+footer {
+	margin-top: 50px;
+	padding-bottom: 50px;
+	border-top: 3px solid $dark-brown;
+	font-size: 20px;
+	text-align: center;
+	color: $white;
+	ul {
+		li {
+			display: inline-block;
+			line-height: 16px;
+			margin: 0 5px;
+		}
+	}
+	a {
+		color: $white;
+		padding: 5px;
+		border-radius: 5px;
+		&:hover {
+			background: $grey;
+			color: $dark-brown;
+		}
+	}
+}
+
+.author {
+	color: $dark-brown;
+}
