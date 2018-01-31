@@ -1,0 +1,107 @@
+<!-- Alt + F3 to select all of the same text -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Empty HTML file</title>
+		<script type="text/javascript" src="./jquery-3.3.1.min.js"></script>
+		<style>
+			.errorText {
+				color: red;
+			}
+			.errorBox {
+				border: 2px solid red;
+			}
+			.goodBox {
+				border: 2px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<select name="choose">
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+		<div>
+			<input type="radio" name="type" value="cat">Cat</input>
+			<input type="radio" name="type" value="dog">Dog</input>
+			<input type="radio" name="type" value="bird">Bird</input>
+		</div>
+		<div>
+			<input type="checkbox" name="feel" value="happy">happy</input>
+			<input type="checkbox" name="feel" value="sad">sad</input>
+			<input type="checkbox" name="feel" value="normal">normal</input>
+		</div>
+		<div>
+			<p>I want to buy a new <span id="gender"></span> <span id="feeling"></span><span id="animalType">animal</span>.</p>
+		</div>
+		<form>
+			<input type=password name="password">
+			<button name="submit">Valida Password</button>
+		</form>
+		<br>
+		<span id="errorMessage" class="errorText" hidden>Please fix the following errors:</span>
+		<ul>
+			<li id="needsNumbers" class="errorText" hidden>The password must contain a number</li>
+			<li id="atLeast10Chars" class="errorText" hidden>The password must be longer</li>
+		</ul>
+		<span id="successMessage" hidden>The password is cool!</span>
+		<script>
+			$("select[name='choose']").change(function() {
+				$("#gender").html($(this).val());
+			});
+
+			$("input:radio[name='type']").change(function () {
+				if ($(this).prop("checked")) {
+					$("#animalType").html($(this).val());
+				}
+			});
+
+			var allChecked = [];
+
+			$("input:checkbox").change(function() {
+				var value = $(this).val();
+				if($(this).prop("checked")) {
+					allChecked.push(value);
+				} else {
+					var index = allChecked.indexOf (value);
+					if (index != -1) {
+						allChecked.splice(index, 1);
+					}
+				}
+				$("#feeling").html("");
+				for (var i = 0; i < allChecked.length; i++) {
+					$("#feeling").append(allChecked[i]);
+					if (i < allChecked.length - 1) {
+						$("#feeling").append(", ");
+					} else {
+						$("#feeling").append(" ");
+					}
+				}
+			});
+			$("button[name='submit']").click(function() {
+				var passwordField = $("input[name='password']");
+				var password = passwordField.val();
+				var isOkay = true;
+				if (password.length < 10) {
+					isOkay = false;
+					$("#atLeast10Chars").show();
+				}
+				if (/\d/.test(password) == false) {
+					isOkay = false;
+					$("#needsNumbers").show();
+				}
+				if (isOkay == false) {
+					$("#successMessage").hide();
+					$("#errorMessage").show();
+					passwordField.removeClass("goodBox").addClass("errorBox");
+				} else {
+					$("#successMessage").show();
+					$(".errorText").hide();
+					passwordField.removeClass("errorBox").addClass("goodBox");
+				}
+				return false;
+			})
+		</script>
+	</body>
+</html>
