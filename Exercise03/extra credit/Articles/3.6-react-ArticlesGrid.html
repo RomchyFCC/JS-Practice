@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@15.6.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.6.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id='container'></div>
+    <script type="text/jsx">
+      class ArticlesGrid extends React.Component {
+        constructor (props) {
+          super(props);
+          this.state = {
+            articles: []
+          };
+        }
+
+        componentDidMount () {
+          var API_KEY = '40ef5c97c6b14379a329c119372106c3'; // replace this with the API key you obtained from https://developer.nytimes.com/
+          var query = location.search ? (location.search.split('?q=')[1]).split('&')[0] : 'all';
+          var url='http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + query + '&api-key=' + API_KEY;
+
+          $.getJSON(url, function(data, status) {
+            return this.setState({articles: this.parse(data)});
+          }.bind(this));
+        }
+
+        parse(results) {
+          if(!results || !results.response) return [];
+          var articles = results.response.docs;
+          var parsedArticles = [];
+
+          for(var i = 0; i < articles.length; i++) {
+            var article = articles[i];
+            if (article.multimedia.find(this.checkXLarge)) {
+              parsedArticles.push({
+                id: article._id,
+                title:    article.headline.main || 'Untitled',
+                imageURL: article.multimedia.find(this.checkXLarge).url || '#',
+                webURL:   article.web_url || '#'
+              });
+            }
+          }
+
+          return parsedArticles;
+        }
+
+        checkXLarge(image) {
+          return image.subtype === 'xlarge';
+        }
+
+        render () {
+          return this.state.articles && (
+            <div className='articles'>
+              { this.state.articles.map( function (article) {
+                return <Article article={article} key={article._id} />;
+              })}
+            </div>
+          );
+        }
+      }
+
+      var Article = function({article}) {
+        var imgURL = 'https://static01.nyt.com/' + article.imageURL;
+        return (
+          <div className='article'>
+            <a className='article-link' href={article.webURL}>
+              <img className='article-image' title={article.title} src={imgURL}/>
+            </a>
+          </div>
+        ); 
+      }
+
+      ReactDOM.render(
+        <ArticlesGrid/>,
+        document.getElementById('container')
+      );
+    </script>
+  </body>
+</html>
