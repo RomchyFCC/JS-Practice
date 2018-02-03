@@ -25,7 +25,7 @@ class AddDog extends Component {
         breed: this.refs.breed.value,
         image: this.refs.image.value
       }}, function() {
-        //console.log(this.state);
+        //console.log(this.props.addDog);
         this.props.addDog(this.state.newDog);
       });
     }
