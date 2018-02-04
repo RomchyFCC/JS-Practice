@@ -1,0 +1,24 @@
+{
+  "name": "practicenode",
+  "version": "1.0.0",
+  "description": "the practice files for server side javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "JS-Practice"
+  },
+  "keywords": [
+    "Express",
+    "Node",
+    "JavaScript",
+    "npm"
+  ],
+  "author": "Roman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
