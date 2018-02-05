@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Find Toy</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<form>
+			id: <input name="id"><br>
+			name: <input name="name"><br>
+			price: <input name="price"><br>
+		</form>
+		<ul>
+			<div id="results"></div>
+		</ul>
+		<script>
+			$("input").on("change input textInput", () => {
+				var id = $("input[name='id']").val();
+				var name = $("input[name='name']").val();
+				var price = $("input[name='price']").val();
+
+				var query ="?";
+				if (id) {
+					query += "id="+id+"&";
+				}
+				if (name) {
+					query += "name="+name+"&";
+				}
+				if (price) {
+					query += "price="+price;
+				}
+				var url = "http://localhost:3000/findToy"+query;
+
+				$.getJSON(url, (toys, status) => {
+					if (status === "success") {
+						var results = $("#results");
+						results.html("");
+						toys.forEach((toy) => {
+							results.append("<li><i>"+toy.id+"</i>, ");
+							results.append(toy.name + ", $");
+							results.append(toy.price + ". </li>");
+						});
+					} else {
+
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
