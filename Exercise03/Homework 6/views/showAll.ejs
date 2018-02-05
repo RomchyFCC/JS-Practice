@@ -1,0 +1,10 @@
+<html>
+	<body>
+		<p>here are all the animals</p>
+		<ul>
+			<% animals.forEach((animal) => {%>
+			<li><a href="/animal?name=<%= animal.name %>"><%= animal.name %></a>: <%= animal.age %></li>
+			<% });%>
+		</ul>
+	</body>
+</html>
