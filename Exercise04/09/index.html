@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const p = document.querySelector('p');
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log("cowabonga");
+
+    // Interpolated
+    console.log("cowabonga %s", "added a variable instead of %s lul");
+
+    // Styled
+    console.log("%c styled, nice", "font-size: 20px; color: red");//and many more css styles
+
+    // warning!
+    console.warn("cowabonga");
+
+    // Error :|
+    console.error("cowabonga");
+
+    // Info
+    //console.info("this doesn't seem to be working");
+
+    // Testing
+    console.assert(1 === 2, "nope");
+
+    // clearing
+    //console.clear();
+
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`) // console.collapsed can be used aswell
+      console.log(`this is ${dog.name}`);
+      console.log(`this is ${dog.age}`);
+      console.groupEnd(`${dog.name}`)
+    })
+
+    // counting
+    console.count("Romchy");
+    console.count("Romchy");
+    console.count("Romchy");
+    console.count("Romchy");
+
+    // timing
+    console.time("fetching data");
+    fetch("https://api.github.com/users/wesbos").then(data => data.json()).then(data => {
+      console.timeEnd("fetching data");
+      console.log(data);
+    })
+
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
