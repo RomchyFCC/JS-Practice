@@ -48,3 +48,9 @@ Coding along to this course: [Code your first game](https://www.udemy.com/code-y
 Really simple tutorial. Learned more about the canvas in html5 which is always nice :)
 
 ---
+
+### Exercise06
+
+Doing the basic tutorial on react from their doc page.
+
+---
