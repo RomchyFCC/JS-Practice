@@ -54,3 +54,28 @@ Really simple tutorial. Learned more about the canvas in html5 which is always n
 Doing the basic tutorial on react from their doc page.
 
 ---
+
+### Exercise07
+
+React codealong where you select an audio to play in the browser.
+
+---
+
+### Exercise08
+
+Youtube video from freecodecamp codealong, where we coded a chat app inspired from a forum post on FFC forums.
+
+---
+
+### Exercise09
+
+I have saved some assignments here if I have extra time to implement and play around with react code.
+This the code from a course on EdX.
+
+---
+
+### Exercise10
+
+Code along with a youtube crash course on React from Brad Traversy, Traversy Media.
+
+---

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <meta charset="UTF-8">
+       <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+       <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+
+  </head>
+  <body>
+      <div id="root"></div>
+      <script type="text/babel">
+        let numItems = 9;
+        /*Title, number of items
+        food: apple, bread, cheese
+        clothes: shirt pants hat
+        supplies: pen paper glue*/
+        function ShoppingTitle(props) {
+          return (
+            <div>
+              <h1>{props.title}</h1>
+              <h3>Number of items left: {props.numItems}</h3>
+            </div>
+          )
+        }
+
+        function ShoppingList(props) {
+          return (
+            <div>
+              <Items title={props.title[0]} items={props.items[0]} />
+              <Items title={props.title[1]} items={props.items[1]} />
+              <Items title={props.title[2]} items={props.items[2]} />
+            </div>
+          )
+        }
+
+        function Items(props) {
+          return (
+            <div>
+              <h3>{props.title}</h3>
+              <ol>
+                <li>{props.items[0]}</li>
+                <li>{props.items[1]}</li>
+                <li>{props.items[2]}</li>
+              </ol>
+            </div>
+          )
+        }
+
+        function ShoppingApp (props) {
+          return (
+            <div>
+              <ShoppingTitle title="My Super Awesome React Shopping List" numItems={numItems} />
+              <ShoppingList title={['food', 'clothes', 'supplies']} items={[['apple', 'bread', 'cheese'], ['shirt', 'pants', 'hat'], ['pen', 'paper', 'glue']]} />
+            </div>
+          )
+        }
+        ReactDOM.render(
+          <ShoppingApp/>,
+          document.getElementById('root')
+        )
+      </script>
+  
+  </body>
+</html>

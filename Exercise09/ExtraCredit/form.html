@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <meta charset="UTF-8">
+       <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+       <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+
+  </head>
+  <body>
+      <div id="root"></div>
+      <script type="text/babel">
+        class ControlledInput extends React.Component{
+          constructor(props){
+            super(props)
+            this.state = {value: 'apple'}
+            this.handleChange = this.handleChange.bind(this)
+          }
+          handleChange(event){
+            this.setState({[event.target.name]: event.target.value})
+          }
+          render(){
+            var array = ["apple","banana","carrot","donuts"]
+            var options = array.map( (item) =>
+              <option value = {item}>{item}</option>
+            )
+            return (
+              <form>
+                <input name="inputName" type = "input" value = {this.state.inputName} onChange = {this.handleChange}/>
+                <textarea name="textAreaName" type = "text" value = {this.state.textAreaName} onChange = {this.handleChange}/>
+                <select name = "selectName" value={this.state.selectName} onChange={this.handleChange}>
+                  {options}
+                </select>
+              </form>
+            )
+          }
+        }
+        ReactDOM.render(
+          <ControlledInput/>,
+          document.getElementById('root')
+        )
+      </script>
+  
+  </body>
+</html>
