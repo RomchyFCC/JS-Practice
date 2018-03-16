@@ -1,5 +1,6 @@
 # My JavaScript exercises repository
 
+If I don't write the link to the course here, you can find all links in the blog repo in the courses table.
 
 
 ### Exercise01
@@ -77,5 +78,11 @@ This the code from a course on EdX.
 ### Exercise10
 
 Code along with a youtube crash course on React from Brad Traversy, Traversy Media.
+
+---
+
+### Exercise11
+
+Code along to a course on egghead.io.
 
 ---
