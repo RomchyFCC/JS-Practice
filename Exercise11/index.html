@@ -15,7 +15,7 @@
   <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
   <script type="text/babel">
-  const rootElement = document.getElementById('root');
+  const root = document.getElementById('root');
   /*const element = document.createElement('div');
   element.textContent = 'hello world';
   element.className = 'container';
@@ -59,7 +59,127 @@
     rootElement)
   }
   tick();
-  setInterval(tick, 1000);*/
+  setInterval(tick, 1000);
+  -------------------------------------------------------
+  const state = {
+    eventCount: 0,
+    username: '',
+  }
+
+  function App() {
+    return (
+      <div>
+        <p>
+          There have been {state.eventCount} events
+        </p>
+        <p>
+          <button onClick={increment}>R</button>
+        </p>
+        <p>You typed: {state.username}</p>
+        <p>
+          <input onChange={event => setState({
+            username: event.target.value,
+          })} />
+        </p>
+      </div>
+    )
+  }
+  function setState(newState) {
+    Object.assign(state, newState)
+    renderApp()
+  }
+  function increment() {
+    setState({
+        eventCount: state.eventCount + 1
+    })
+  }
+  function renderApp() {
+    ReactDOM.render(
+      <App />,
+      root,
+    )
+  }
+  renderApp();
+  ----------------------------------------------------------------
+  class StopWatch extends React.Component {
+    state = {
+      lapse: 0,
+      running: false
+    }
+    handleRunClick = () => {
+      const startTime = Date.now() - this.state.lapse;
+      this.setState(state => {
+        if(state.running) {
+          clearInterval(this.timer);
+        } else {
+          this.timer = setInterval(() => {
+            this.setState({lapse: Date.now() - startTime})
+          })
+        }
+        return {running: !state.running}
+      })
+    }
+    handleClearClick = () => {
+      this.setState({lapse: 0, running: false})
+      clearInterval(this.timer);
+    }
+    componentWillUnmount() {
+      clearInterval(this.timer)
+    }
+    render() {
+      const {lapse, running} = this.props;
+      return (
+        <div>
+          <label>{this.state.lapse}ms</label>
+          <button onClick={this.handleRunClick}>{this.state.running ? 'Stop' : 'Start'}</button>
+          <button onClick={this.handleClearClick}>Clear</button>
+        </div>
+      )
+    }
+  }
+  const element = <StopWatch />
+  ReactDOM.render(
+    element,
+    root
+  )
+  --------------------------------------------------------------
+  class Counter extends React.Component {
+    state = {count: 0}
+    handleClick = () => {
+      this.setState(({count}) => ({
+          count: count + 1,
+      }))
+    }
+    render() {
+      return (
+        <button onClick={this.handleClick.bind(this)}>{this.state.count}</button>
+      )
+    }
+  }
+  --------------------------------------------------------------
+  class Tilt extends React.Component {
+    render() {
+      return (
+        <div className="tilt-root">
+          <div className="tilt-child">
+            <div {...this.props} />
+          </div>
+        </div>
+      )
+    }
+  }
+  const element = (
+    <div className="totally-centered">
+      <Tilt>
+      vanillat-tilt.js
+      </Tilt>
+    </div>
+  )
+  ReactDOM.render(
+    <Counter />,
+    root
+  )
+  --------------------------------------------------------------*/
   </script>
 </body>
 </html>
