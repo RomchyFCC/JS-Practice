@@ -86,3 +86,15 @@ Code along with a youtube crash course on React from Brad Traversy, Traversy Med
 Code along to a course on egghead.io.
 
 ---
+
+### Exercise12
+
+Well basically a project on React I wanted to make but I'll keep it as an exercise for now because It's not really something I want to do but something I should/must do. Therefor I won't give it everything I got and won't make it as perfect as I would want it to be.
+
+---
+
+### Exercise13
+
+Code along to a egghead course
+
+---
