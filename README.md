@@ -89,7 +89,7 @@ Code along to a course on egghead.io.
 
 ### Exercise12
 
-Well basically a project on React I wanted to make but I'll keep it as an exercise for now because It's not really something I want to do but something I should/must do. Therefor I won't give it everything I got and won't make it as perfect as I would want it to be.
+Code along with React JS tutorial by learncodecademy on youtube. For now I had only done files 1 and 2. Will come back to the other one later on.
 
 ---
 
@@ -98,3 +98,7 @@ Well basically a project on React I wanted to make but I'll keep it as an exerci
 Code along to a egghead course
 
 ---
+
+### Exercise15
+
+Well basically a project on React I wanted to make but I'll keep it as an exercise for now because It's not really something I want to do but something I should/must do. Therefor I won't give it everything I got and won't make it as perfect as I would want it to be.
