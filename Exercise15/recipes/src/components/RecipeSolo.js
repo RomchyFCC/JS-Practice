@@ -1,6 +1,8 @@
 import React from 'react';
 import RecipeAPI from '../api';
 import Header from './Header';
+import AddComment from './AddComment';
+import Footer from './Footer';
 
 import { Link } from 'react-router-dom';
 
@@ -34,12 +36,15 @@ const RecipeSolo = props => {
                   <h3>{r.commenterName}</h3>
                   <p>{r.comment}</p>
                 </div>
+                
               </li>
               )
             )
           }
         </ul>
+        <AddComment />
       </div>
+      <Footer />
     </div>
   )
 }
