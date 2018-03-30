@@ -1,0 +1,303 @@
+/* Basic CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --color-white: #FBFBFC;
+  --color-gray: #DADBDC;
+  --color-blue:#2EE2E9;
+  --color-red: #FC4F57;
+  --color-dark: #5E5B5B;
+  --color-green: #C4DE85;
+  --color-light-red: #DD9CA0;
+  --color-yellow: #E0D202;
+}
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-white);
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Form pop-up position styles */
+.wrapper {
+  position: relative;
+  background-color: var(--color-gray);
+  padding: 100px 50px;
+  margin: 0 auto;
+  width: 960px;
+  height: 820px;
+}
+
+/* Form styling */
+.form-window {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  background-color: var(--color-white);
+  padding: 100px;
+  transition: 0.4s ease all;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 75px;
+}
+
+/* About form */
+.form-about {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* About header */
+.form-about h1 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+/* About secondary text */
+.secondary-form-text {
+  color: var(--color-dark);
+  font-size: 1.7rem;
+  font-weight: 100;
+}
+
+.secondary-form-text .important-text {
+  text-decoration: underline;
+  text-decoration-color: var(--color-yellow);
+}
+
+.important-text {
+  font-weight: 700;
+  color: black;
+}
+
+/* About form footer */
+.form-footer {
+  font-size: 0.6rem;
+}
+
+.about-footer ~ p {
+  color: var(--color-dark);
+  line-height: 2rem;
+}
+
+.about-footer {
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.customer-support {
+  color: var(--color-red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.customer-support:hover {
+  text-decoration: underline;
+}
+/* End of form about */
+
+/* Form Input */
+.contactForm, .form-group {
+  display: grid;
+  grid-gap: 10px;
+  align-content: start;
+  transition: 0.3s;
+  top: 0;
+  opacity: 1;
+}
+
+/* Form group animation */
+.form-group {
+  position: relative;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.form-group::after {
+  display: block;
+  position: absolute;
+  content: '';
+  background-color: var(--color-light-red);
+  left: 0;
+  bottom: -1px;
+  height: 1px;
+  transition: 0.3s;
+  width: 0;
+}
+
+/* Labels */
+.formFieldName {
+  transition: 0.3s;
+  position: relative;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--color-dark);
+  top: 31px;
+  height: 12px;
+}
+
+/* Inputs */
+.formFieldInput {
+  height: 30px;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  z-index: 5;
+  outline: none;
+}
+
+/* Styles added with javascript */
+
+.labelAnimation {
+  top: 0;
+  font-size: 0.5rem;
+}
+
+.formGroupAnimation::after {
+  width: 100%;
+}
+
+.removeForm {
+  top: -500px;
+  position: relative;
+  opacity: 0;
+}
+
+.removeFormDOM {
+  display: none;
+}
+
+/* Submit field */
+.form-field-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.form-field-submit .secondary-form-text {
+  font-size: 0.55rem;
+}
+
+#submitButton, .backButton, #submitable {
+  color: var(--color-red);
+  background-color: var(--color-red);
+  border: 1px solid var(--color-light-red);
+  border-radius: 15px;
+  padding: 5px 20px;
+  margin-right: 5px;
+  transition: all 0.3s;
+
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: inset 0 0 50px 10px var(--color-white);
+}
+
+/* on hover, remove shadow to reveal the buttons red background */
+.backButton:hover, #submitable {
+  box-shadow: inset 0 0 0 0 var(--color-white);
+  color: var(--color-white);
+}
+
+/* Javascript added styles for the created div element  */
+.submited {
+  display: grid;
+  align-content: center;
+  transition: 0.3s;
+}
+
+.backButton {
+  height: 25px;
+  width: 100px;
+  margin: 15px auto;
+}
+
+.message {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* End of form input | End of form styling */
+
+/* Shapes Decorations */
+.shape {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Background shapes */
+.shape-red {
+  background-color: var(--color-red);
+  height: 400px;
+  width: 100px;
+  top: 0;
+  left: 0;
+}
+
+.shape-blue {
+  background-color: var(--color-blue);
+  height: 300px;
+  width: 100px;
+  top: 0;
+  right: 0;
+}
+
+.shape-pattern {
+  background-image: url('./aztec.svg');
+  bottom: 0;
+  right: 0;
+  height: 175px;
+  width: 100px;
+}
+
+/* Form window shapes */
+.form-window .shape-blue {
+  width: 50px;
+  height: 72px;
+  top: calc(100% - 72px);
+}
+
+.shape-green {
+  background-color: var(--color-green);
+  width: 50px;
+  height: 75px;
+  top: 0;
+  right: 0;
+}
+
+.shape-pattern-right {
+  background-image: url('./aztec.svg');
+  width: 50px;
+  height: 150px;
+  top: 200px;
+  right: 0;
+}
+
+.shape-pattern-left {
+  background-image: url('./aztec.svg');
+  width: 50px;
+  height: 250px;
+  top: 100px;
+  left: 0;
+}
+
+.shape-yellow {
+  background-color: var(--color-yellow);
+  width: 50px;
+  height: 75px;
+  bottom: 150px;
+  left: 0;
+}
+
+/* End of shapes */

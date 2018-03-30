@@ -99,6 +99,21 @@ Code along to a egghead course
 
 ---
 
+### Exercise14
+
+A code along to the tutorial made by net ninja on React.
+
+---
+
 ### Exercise15
 
 Well basically a project on React I wanted to make but I'll keep it as an exercise for now because It's not really something I want to do but something I should/must do. Therefor I won't give it everything I got and won't make it as perfect as I would want it to be.
+
+---
+
+### Exercise16
+
+A form that was a part of my recruitment process.
+A functional copy of this [link](https://dribbble.com/shots/3767209-Discover-Form) had to be made.
+
+---
