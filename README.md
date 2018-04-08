@@ -117,3 +117,9 @@ A form that was a part of my recruitment process.
 A functional copy of this [link](https://dribbble.com/shots/3767209-Discover-Form) had to be made.
 
 ---
+
+### Exercise17
+
+React practice code along from a medium article made by Alex. [Link](https://medium.freecodecamp.org/evolving-patterns-in-react-116140e5fe8f)
+
+---
