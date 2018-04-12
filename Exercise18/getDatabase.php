@@ -1,8 +1,8 @@
 <?php
 
-require_once('../../mysqli_connect.php');
+require_once('../mysqli_connect.php');
 
-$query = "SELECT * FROM numbers";
+$query = "SELECT * FROM `numbers`";
 
 $response = @mysqli_query($dbc, $query);
 
@@ -10,6 +10,7 @@ if ($response) {
   echo '
   <table>
     <tr>
+      <td><b>id</b></td>
       <td><b>one</b></td>
       <td><b>two</b></td>
       <td><b>three</b></td>
@@ -21,7 +22,8 @@ if ($response) {
 
   while ($row = mysqli_fetch_array($response)) {
     echo '<tr>
-    <td>' . $row['number_one'] . '</td>' .
+    <td>' . $row['id'] . '</td>' .
+    '<td>' . $row['number_one'] . '</td>' .
     '<td>' . $row['number_two'] . '</td>' .
     '<td>' . $row['number_three'] . '</td>' .
     '<td>' . $row['number_four'] . '</td>' .
@@ -34,11 +36,9 @@ if ($response) {
   echo '</table>';
 } else {
 
-  echo "Couldn't issue db query";
+  echo "Couldn't issue db query" . mysqli_error($dbc);
 
-  echo mysqli_error($dbc);
 }
-
 mysqli_close($dbc);
 
 ?>
