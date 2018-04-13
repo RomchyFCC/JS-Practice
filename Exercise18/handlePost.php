@@ -1,3 +1,6 @@
+<head>
+		<meta http-equiv="refresh" content="1;URL=http://localhost/jackpot/">
+</head>
 <?php
 
 if (empty($_POST['number_one']) || empty($_POST['number_two']) || empty($_POST['number_three']) || empty($_POST['number_four']) || empty($_POST['number_five']) || empty($_POST['number_six']) || empty($_POST['number_seven'])) {

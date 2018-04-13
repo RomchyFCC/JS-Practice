@@ -1,3 +1,6 @@
+<head>
+		<meta http-equiv="refresh" content="1;URL=http://localhost/jackpot/">
+</head>
 <?php
 
 if(isset($_POST['submit'])) {
