@@ -1,35 +1,23 @@
 import React from 'react';
-import RecipeAPI from '../api';
-import Header from './Header';
 import AddComment from './AddComment';
-import Footer from './Footer';
-
-import { Link } from 'react-router-dom';
-
 
 const RecipeSolo = props => {
-  const recipe = RecipeAPI.get(parseInt(props.match.params.id, 10))
-  if (!recipe) {
-    return <div>If you created your own recipe, it doesn't exist because this is a front end practice project!</div>
-  }
   return(
     <div>
-      <Header />
-      <Link to={'/'}>Home</Link>
-      <img width="300" height="200" src={recipe.img} alt={recipe.name} />
+      <img width="300" height="200" src={props.recipe.img} alt={props.recipe.name} />
       <div>
-        <p>Name: {recipe.name}</p>
-        <p>PrepTime: {recipe.prepTime}</p>
+        <p>Name: {props.recipe.name}</p>
+        <p>PrepTime: {props.recipe.prepTime}</p>
       </div>
       <div>
         <p>Preparation:</p>
-        <p>{recipe.preparation}</p>
+        <p>{props.recipe.preparation}</p>
       </div>
       <div>
         <p>Comments</p>
         <ul>
           {
-            recipe.comments.map((r, index) => (
+            props.recipe.comments.map((r, index) => (
               
               <li key={index}>
                 <div className="comment">
@@ -42,9 +30,8 @@ const RecipeSolo = props => {
             )
           }
         </ul>
-        <AddComment />
+        <AddComment handleComment={props.handleComment.bind(this)} />
       </div>
-      <Footer />
     </div>
   )
 }

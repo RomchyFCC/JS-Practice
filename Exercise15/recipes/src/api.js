@@ -1,4 +1,4 @@
-const RecipeAPI = {
+/* const RecipeAPI = {
   recipes: [
     {
       name: 'Recipe',
@@ -42,4 +42,4 @@ const RecipeAPI = {
   }
 }
 
-export default RecipeAPI
+export default RecipeAPI */

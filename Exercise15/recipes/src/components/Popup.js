@@ -28,7 +28,7 @@ class Popup extends React.Component {
             <p>Preparation time <span>(mins)</span>: </p>
             <input required ref="newTime" type="number" />
             <p>Preparation: </p>
-            <textarea  required ref="newPrep" placeholder="Do not waste your time writting an actual recipe because it won't be saved!!!" />
+            <textarea  required ref="newPrep" placeholder="Recipe description, instructions and ingredients." />
             <input type="submit" value="Submit" />
           </form>
       </div>

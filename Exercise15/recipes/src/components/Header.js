@@ -1,10 +1,10 @@
 
 import React from 'react';
 
-const Header = () => {
+const Header = props => {
   return (
     <header className="header" >
-      <h1>Roman's Cookbook</h1>
+      <h1 onClick={props.toggleRecipe.bind(this)} >Roman's Cookbook</h1>
     </header>
   );
 }
