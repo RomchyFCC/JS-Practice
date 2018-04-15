@@ -19,7 +19,7 @@ class App extends React.Component {
           name: 'Recipe',
           img: 'https://cmgajcfoodandmore.files.wordpress.com/2017/04/tacosfrom-del-taco.jpg?w=640',
           preparation: 'text area',
-          prepTime: 1,
+          prepTime: 60,
           id: 1,
           comments: [
             {
@@ -36,7 +36,7 @@ class App extends React.Component {
           name: 'Recipes',
           img: 'https://upload.wikimedia.org/wikipedia/commons/8/80/Guacamole_Pepper-Jack_Burger.jpg',
           preparation: 'text areas',
-          prepTime: 2,
+          prepTime: 45,
           id: 2,
           comments: [
             {
@@ -108,6 +108,7 @@ class App extends React.Component {
       })
     }
   }
+
   handleComment(e) {
     e.preventDefault();
     let name = e.target.childNodes[1].value;
@@ -126,9 +127,19 @@ class App extends React.Component {
     })
   }
 
+  removeRecipe(e) {
+    let id = e.target.parentNode.childNodes[0].id;
+    id = id[id.length - 1] - 1;
+    const recipes = this.state.recipes;
+    recipes.splice(id, 1);
+    this.setState({
+      recipes
+    })
+  }
+
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <Header toggleRecipe={this.toggleRecipe.bind(this)}/>
         {
           this.state.showRecipe ? 
@@ -144,6 +155,7 @@ class App extends React.Component {
             togglePopup={this.togglePopup.bind(this)}
             toggleRecipe={this.toggleRecipe.bind(this)}
             length={this.state.recipes.length}
+            removeRecipe={this.removeRecipe.bind(this)}
           />
         }
         <Footer />

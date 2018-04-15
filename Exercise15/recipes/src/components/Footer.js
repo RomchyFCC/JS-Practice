@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Footer = () => (
-  <div>
-    <p>Made by Roman Struna, with some effort and lots of tea.</p>
+  <div className="footer">
+    <p>Made by <span className="author"> Roman Struna</span></p>
   </div>
 )
 

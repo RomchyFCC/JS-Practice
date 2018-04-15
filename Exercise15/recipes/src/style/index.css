@@ -6,7 +6,94 @@
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(125deg, rgba(231, 142, 142, 0.849), rgba(112, 241, 95, 0.897))
+  background: rgb(209, 209, 209);
+}
+
+.header {
+  border-bottom: 2px solid rgb(0, 55, 128);
+}
+
+.header h1 {
+  color: rgb(0, 55, 128);
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.utility {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  min-height: 25px;
+  padding: 10px;
+}
+
+.popup {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.wrapper {
+  background: linear-gradient(125deg, rgba(231, 142, 142, 0.849), rgba(112, 241, 95, 0.897));
+  min-width: 300px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+#wrapper ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.recipe {
+  display: grid;
+  grid-template-rows: 50px 190px 25px;
+  text-align: center;
+}
+
+.removal {
+  cursor: pointer;
+  background: rgb(196, 2, 2);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+li {
+  list-style-type: none;
+  width: 280px;
+  margin: 5px;
+  background: rgba(250,250,250,0.35);
+  padding: 5px 0;
+  border-radius: 5px;
+}
+
+.recipe h3 {
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  height: 50px;
+  align-self: center;
+}
+
+#add-recipe {
+  display: grid;
+}
+
+.footer {
+  border-top: 2px solid rgb(0, 55, 128);
+  text-align: center;
+  padding: 10px;
+}
+
+.wrapperSolo {
+  margin: 0 auto;
+  width: 300px;
+}
+
+#add-comment > * {
+  width: 100%;
 }

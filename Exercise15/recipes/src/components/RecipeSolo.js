@@ -3,7 +3,7 @@ import AddComment from './AddComment';
 
 const RecipeSolo = props => {
   return(
-    <div>
+    <div className="wrapperSolo">
       <img width="300" height="200" src={props.recipe.img} alt={props.recipe.name} />
       <div>
         <p>Name: {props.recipe.name}</p>
@@ -14,7 +14,6 @@ const RecipeSolo = props => {
         <p>{props.recipe.preparation}</p>
       </div>
       <div>
-        <p>Comments</p>
         <ul>
           {
             props.recipe.comments.map((r, index) => (

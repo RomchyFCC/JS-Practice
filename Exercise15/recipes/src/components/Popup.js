@@ -19,7 +19,6 @@ class Popup extends React.Component {
     return (
       <div className='popup'>
           <h3>Add a recipe</h3>
-          <button onClick={this.props.closePopup}>close me</button>
           <form id="add-recipe" onSubmit={this.handleSubmit.bind(this)}>
             <p>Name: </p>
             <input required ref="newName" type="text" />
