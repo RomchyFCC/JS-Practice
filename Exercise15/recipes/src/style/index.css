@@ -31,12 +31,14 @@ body {
 .popup {
   display: grid;
   grid-template-columns: 1fr;
+  margin: 10px;
 }
 .wrapper {
   background: linear-gradient(125deg, rgba(231, 142, 142, 0.849), rgba(112, 241, 95, 0.897));
   min-width: 300px;
   max-width: 900px;
   margin: 0 auto;
+  box-shadow: 0 0 30px 5px gray;
 }
 #wrapper ul {
   width: 100%;
@@ -90,7 +92,7 @@ li {
 }
 
 .wrapperSolo {
-  margin: 0 auto;
+  margin: 10px auto;
   width: 300px;
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/App.css';
 
 // import components
 import Recipes from './Recipes.js';
