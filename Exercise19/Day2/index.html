@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>First React App</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+</head>
+<body>
+  <div id='app'></div>
+
+  <script type='text/babel'>
+
+    function FriendsList (props) {
+      return (
+        <ul>
+          {
+            props.list.map((name, id) => (
+              <li key={name + id} >
+                <span>{name}</span>
+                <button onClick={() => props.remove(name)} >Delete</button>
+              </li>
+            ))
+          }
+        </ul>
+      )
+    }
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+
+        this.state = {
+          friends: ['Asa', 'Meg', 'Ron', 'Asa', 'Asa', 'Meg', 'Ron', 'Asa', 'Asa', 'Meg', 'Ron', 'Asa', 'Asa', 'Meg', 'Ron', 'Asa'],
+          input: '',
+        }
+
+        this.handleRemove = this.handleRemove.bind(this);
+        this.updateInput = this.updateInput.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
+      }
+      
+      handleAdd() {
+        this.setState(currentState => {
+          return {
+            friends: currentState.friends.concat([this.state.input])
+          }
+        })
+      }
+
+      updateInput(e) {
+        this.setState({
+          input: e.target.value
+        })
+      }
+
+      handleRemove(name) {
+        this.setState(currentState => {
+          return {
+            friends: currentState.friends.filter(friend => friend !== name)
+          }
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <input
+              type="text"
+              placeholder="new buddy"
+              value={this.state.input}
+              onChange={this.updateInput}
+            />
+            <button 
+              onClick={this.handleAdd} 
+            >
+              Submit
+            </button>
+            <FriendsList
+              list={this.state.friends}
+              remove={this.handleRemove}
+            />
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('app')
+    )
+  </script>
+</body>
+</html>
