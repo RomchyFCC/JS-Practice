@@ -8,8 +8,62 @@
 </head>
 <body>
   <div id='app'></div>
+  <script>
+    window.API = {
+      fetchFriends() {
+        return new Promise((res, rej) => {
+          const friends = [
+              {
+                name: 'Jordyn',
+                active: true,
+              },
+              {
+                name: 'Mikenzi',
+                active: true,
+              },
+              {
+                name: 'Jake',
+                active: false
+              }
+            ];
 
+          setTimeout(()=> res(friends), 2000);
+        })
+      }
+    }
+  </script>
   <script type='text/babel'>
+    class Loading extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          text: 'Loading',
+        }
+      }
+      componentDidMount() {
+        const stopper = this.state.text + '...';
+
+        this.interval = window.setInterval(() => {
+          this.state.text === stopper 
+          ? this.setState({text: 'Loading'}) 
+          : this.setState( currentState => {
+            return {
+              text: currentState.text + '.'
+            }
+          })
+        } , 300);
+      }
+
+      componentWillUnmount() {
+        window.clearInterval(this.interval);
+      }
+      
+      
+      render() {
+        return <p>{this.state.text}</p>
+      }
+    }
     function ActiveFriends (props) {
       return (
         <div>
@@ -45,21 +99,9 @@
       constructor(props) {
         super(props)
         this.state = {
-          friends: [
-            {
-              name: 'Jordyn',
-              active: true,
-            },
-            {
-              name: 'Mikenzi',
-              active: true,
-            },
-            {
-              name: 'Jake',
-              active: false
-            }
-          ],
+          friends: [],
           input: '',
+          loading: true,
         }
         this.handleRemoveFriend = this.handleRemoveFriend.bind(this)
         this.updateInput = this.updateInput.bind(this)
@@ -102,7 +144,20 @@
           input: value
         })
       }
+      componentDidMount() {
+        API.fetchFriends()
+          .then(friends => {
+            this.setState({
+              friends,
+              loading: false,
+            })
+          })
+      }
+      
       render() {
+        if (this.state.loading) {
+          return <Loading/>
+        }
         return (
           <div>
             <input
@@ -112,7 +167,7 @@
               onChange={this.updateInput}
             />
             <button onClick={this.handleAddFriend}>
-              Submit
+              Submit 
             </button>
             <div>
               <button onClick={() => this.setState({

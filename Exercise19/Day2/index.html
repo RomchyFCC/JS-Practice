@@ -18,7 +18,8 @@
             props.list.map((name, id) => (
               <li key={name + id} >
                 <span>{name}</span>
-                <button onClick={() => props.remove(name)} >Delete</button>
+                
+                {(props.deactivate) ? <span><button onClick={() => props.remove(name)} >Delete</button><button onClick={() => props.deactivate(name)} >deactivate</button></span> : <button onClick={() => props.activate(name)} >Activates</button>}
               </li>
             ))
           }
@@ -31,19 +32,23 @@
         super(props)
 
         this.state = {
-          friends: ['Asa', 'Meg', 'Ron', 'Asa', 'Asa', 'Meg', 'Ron', 'Asa', 'Asa', 'Meg', 'Ron', 'Asa', 'Asa', 'Meg', 'Ron', 'Asa'],
+          friends: ['Asa', 'Meg', 'Ron'],
+          inactiveFriends: [],
           input: '',
         }
 
         this.handleRemove = this.handleRemove.bind(this);
         this.updateInput = this.updateInput.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
+        this.handleActivate = this.handleActivate.bind(this);
+        this.handleDeactivate = this.handleDeactivate.bind(this);
       }
       
       handleAdd() {
         this.setState(currentState => {
           return {
-            friends: currentState.friends.concat([this.state.input])
+            friends: currentState.friends.concat([this.state.input]),
+            input: '',
           }
         })
       }
@@ -62,6 +67,24 @@
         })
       }
 
+      handleDeactivate(name) {
+        this.setState(currentState => {
+          return {
+            friends: currentState.friends.filter(friend => friend !== name),
+            inactiveFriends: currentState.inactiveFriends.concat([name])
+          }
+        })
+      }
+
+      handleActivate(name) {
+        this.setState(currentState => {
+          return {
+            inactiveFriends: currentState.inactiveFriends.filter(friend => friend !== name),
+            friends: currentState.friends.concat([name])
+          }
+        })
+      }
+
       render() {
         return (
           <div>
@@ -76,9 +99,21 @@
             >
               Submit
             </button>
+            <br/>
+            <button onClick={() => this.setState({
+              friends: [],
+              inactiveFriends: [],
+            })} >Clear All</button>
+            <h1>Active Friends</h1>
             <FriendsList
               list={this.state.friends}
+              deactivate={this.handleDeactivate}
               remove={this.handleRemove}
+            />
+            <h1>Inactive Friends</h1>
+            <FriendsList
+              list={this.state.inactiveFriends}
+              activate={this.handleActivate}
             />
           </div>
         )
