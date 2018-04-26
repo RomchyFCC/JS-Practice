@@ -123,3 +123,16 @@ A functional copy of this [link](https://dribbble.com/shots/3767209-Discover-For
 React practice code along from a medium article made by Alex. [Link](https://medium.freecodecamp.org/evolving-patterns-in-react-116140e5fe8f)
 
 ---
+
+### Exercise18
+
+Technically doesn't belong here but what's done is done, it's a full stack app using a mySql database and php to access the data and manipulate it.
+It's a personal project so I don't wish to go more in-depth about it.
+
+---
+
+### Exercise19
+
+React training exercises from tyler mcginnis live react bootcamp.
+
+---
