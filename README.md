@@ -136,3 +136,15 @@ It's a personal project so I don't wish to go more in-depth about it.
 React training exercises from tyler mcginnis live react bootcamp.
 
 ---
+
+### Exercise20
+
+Object oriented programming course by learncode.academy on youtube.
+
+---
+
+### Exercise21
+
+Redux Crash Course by Brad Traversy on youtube.
+
+---
